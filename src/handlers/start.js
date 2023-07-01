@@ -1,3 +1,6 @@
+const localMarkup = require("../markups/localMarkup");
+const prisma = require("../modules/prisma");
+
 module.exports = class StartHandler {
     bot = null;
     constructor(bot) {
@@ -6,7 +9,9 @@ module.exports = class StartHandler {
 
     handle () {
         this.bot.start(async ctx => {
-            return ctx.replyWithHTML('<b>Hello</b>')
+            const condidate = await knex.select('*').from('users').where({user_id: ctx.chat.id});
+            console.log(condidate);
+            return ctx.replyWithHTML('<b>🇺🇿 Salom, tilni tanlang\n\n🇷🇺 Привет, выберите язык</b>', {...localMarkup});
         })
     }
 }
