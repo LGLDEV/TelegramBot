@@ -3,7 +3,7 @@ const dbClient = require('../modules/database');
 const translation = require("../modules/translation");
 
 
-module.exports = class LangHandler {
+module.exports = class ReplyHandler {
     bot = null;
     constructor(bot) {
         this.bot = bot;
@@ -18,7 +18,7 @@ module.exports = class LangHandler {
                 await dbClient.setLang(chatId, callData)
                 const userLang = await dbClient.getLang(chatId)
                 await query.telegram.deleteMessage(chatId, callMessageId)
-                return query.replyWithHTML(`<b>${translation(userLang, "Bu sizning shaxsiy havolangiz:\n\nhttps://t.me/QuestionUZ_Robot?start=6026672b573\n\nUlashish orqali anonim suhbat quring!")}</b>`, {...fowardMarkup(userLang)})
+                return query.replyWithHTML(`<b>${translation(userLang, 'welcome', chatId)}</b>`, {...fowardMarkup(userLang)})
             }
         })
     }
