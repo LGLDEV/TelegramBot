@@ -3,6 +3,7 @@ const StartHandler = require("../handlers/start");
 const HelpHandler = require("../handlers/help");
 const ReplyHandler = require("../handlers/reply");
 const anonimWizard = require("../wizards/anonim");
+const replyWizard = require("../wizards/reply");
 
 
 
@@ -10,7 +11,7 @@ module.exports = class Bot {
     token = "";
     bot = null;
     handlers = [];
-    stage = new Scenes.Stage([anonimWizard])
+    stage = new Scenes.Stage([anonimWizard, replyWizard])
     constructor(token) {
         this.token = token;
         this.bot = new Telegraf(token)

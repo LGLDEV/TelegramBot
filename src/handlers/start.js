@@ -15,9 +15,9 @@ module.exports = class StartHandler {
             if (!id) {
                 if (!condidate) {
                     await dbClient.addUser(userId)
-                    return await ctx.replyWithHTML(`<b>Bu sizning shaxsiy havolangiz:\n\nhttps://t.me/ParserXBot?start=${ctx.chat.id}\n\nUlashish orqali anonim suhbat quring!</b>`, {...fowardMarkup});
+                    return await ctx.replyWithHTML(`<b>Bu sizning shaxsiy havolangiz:\n\nhttps://t.me/${process.env.BOT_NAME}?start=${ctx.chat.id}\n\nUlashish orqali anonim suhbat quring!</b>`, {...fowardMarkup});
                 } else {
-                    await ctx.replyWithHTML(`<b>Bu sizning shaxsiy havolangiz:\n\nhttps://t.me/ParserXBot?start=${ctx.chat.id}\n\nUlashish orqali anonim suhbat quring!</b>`, {...fowardMarkup});
+                    await ctx.replyWithHTML(`<b>Bu sizning shaxsiy havolangiz:\n\nhttps://t.me/${process.env.BOT_NAME}?start=${ctx.chat.id}\n\nUlashish orqali anonim suhbat quring!</b>`, {...fowardMarkup});
                 }
             }else {
                 if(!condidate) {await dbClient.addUser(userId)}
