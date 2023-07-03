@@ -15,7 +15,7 @@ startWizard.on('text', async ctx => {
 getMessage.on('text', async ctx => {
     await ctx.telegram.sendMessage(ctx.wizard.state.id, ctx.message.text, {...replyMarkup(ctx.chat.id)})
     await ctx.replyWithHTML("<b>Murojatingiz yuborildi ✅</b>")
-    await ctx.replyWithHTML(`<b>Bu sizning shaxsiy havolangiz:\n\nhttps://t.me/ParserXBot?start=${ctx.chat.id}\n\nUlashish orqali anonim suhbat quring!</b>`, {...fowardMarkup});
+    await ctx.replyWithHTML(`<b>Bu sizning shaxsiy havolangiz:\n\nhttps://t.me/${process.env.BOT_NAME}?start=${ctx.chat.id}\n\nUlashish orqali anonim suhbat quring!</b>`, {...fowardMarkup});
     return ctx.scene.leave();
 })
 
